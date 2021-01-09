@@ -20,7 +20,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: macos-latest
     env:
-      XC_VERSION: ${{ '11.4' }}
+      XC_VERSION: ${{ '12.3' }}
       XC_PROJECT: ${{ 'Edomi.xcodeproj' }}
       XC_SCHEME: ${{ 'Edomi' }}
       
@@ -34,3 +34,12 @@ jobs:
         
       - name: Build project
         run: /usr/bin/xcodebuild -UseModernBuildSystem=0 -project "$XC_PROJECT" -scheme "$XC_SCHEME" -sdk iphoneos -configuration Development archive -archivePath $PWD/build/Edomi.xcarchive CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+
+      - name: Show output
+        run: ls -lisa
+      
+      - name: Create unsigned IPA file
+        run: mkdir Payload; mv $PWD/build/Edomi.xcarchive/Products/Applications/Edomi.app ./Payload; zip -r Edomi-unsigned.ipa Payload;
+        
+      - name: Show output
+        run: ls -lisa
