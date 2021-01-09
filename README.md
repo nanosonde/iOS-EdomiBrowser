@@ -1,5 +1,7 @@
 iOS-EdomiViewer
 ===
+![CI](https://github.com/nanosonde/iOS-EdomiBrowser/workflows/CI/badge.svg?branch=development)
+
 ACHTUNG: Work in Progress!
 
 Diese App ist entstanden, um auf iOS-Devices das Display komplett zu dimmen, aber das Gerät nicht ausschalten zu müssen.
