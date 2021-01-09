@@ -35,7 +35,7 @@ jobs:
         run: ls -lisa
       
       - name: Create unsigned IPA file
-        run: mkdir Payload; mv $PWD/build/Edomi.xcarchive/Products/Applications/Edomi.app ./Payload; zip -r Edomi-unsigned.ipa Payload;
+        run: mkdir Payload; mv $PWD/build/Edomi.xcarchive/Products/Applications/Edomi.app ./Payload; rm -rf ./Payload/Edomi.app/Frameworks; zip -r Edomi-unsigned.ipa Payload;
         
       - name: Show output
         run: ls -lisa
